@@ -33,6 +33,7 @@ source $VENV_DIR/bin/activate
 # Install required Python packages
 pip install --upgrade pip
 pip install -r requirements.txt
+pip install gunicorn
 
 # Run database migrations
 python manage.py makemigrations
