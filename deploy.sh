@@ -5,7 +5,7 @@ PROJECT_NAME="test-deploy"
 GITHUB_REPO_URL="https://github.com/gajjug004/test-deploy.git"
 PROJECT_DIR="/home/ubuntu/$PROJECT_NAME"
 VENV_DIR="$PROJECT_DIR/venv"
-GUNICORN_SOCK="run/gunicorn.sock"
+GUNICORN_SOCK="/run/gunicorn.sock"
 DJANGO_SETTINGS_MODULE="backend"
 ALLOWED_HOSTS=None
 
@@ -80,7 +80,7 @@ fi
 # Create an Nginx server block configuration
 cat <<EOL | sudo tee /etc/nginx/sites-available/$PROJECT_NAME
 server {
-    listen 80;
+    listen 80 default_server;
     server_name $ALLOWED_HOSTS;
 
     location = /favicon.ico { access_log off; log_not_found off; }
